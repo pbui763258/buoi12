@@ -23,7 +23,7 @@ jobs:
       - name: Tam dung web tren Somee de mo khoa file DLL
         run: |
           "<h1>Dang cap nhat he thong, vui long doi vai giay...</h1>" | Out-File -FilePath app_offline.htm -Encoding utf8
-          curl.exe -T app_offline.htm -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/www.luongtuananh.somee.com/app_offline.htm"
+          curl.exe -T app_offline.htm -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/http://www.nguyenthanhduc.somee.com//app_offline.htm"
           Start-Sleep -Seconds 5
 
       - name: Deploy code sang Somee qua FTP
@@ -39,4 +39,4 @@ jobs:
       - name: Mo lai web tren Somee
         if: always()
         run: |
-          curl.exe -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/www.luongtuananh.somee.com/" -Q "-DELE app_offline.htm"
+          curl.exe -u "${{ secrets.FTP_USERNAME }}:${{ secrets.FTP_PASSWORD }}" "ftp://${{ secrets.FTP_SERVER }}/http://www.nguyenthanhduc.somee.com//" -Q "-DELE app_offline.htm"
